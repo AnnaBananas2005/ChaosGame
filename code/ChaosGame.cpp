@@ -18,12 +18,8 @@ int main()
 	RenderWindow window(vm, "Chaos Game!!", Style::Default);
 	srand(static_cast<unsigned int>(time(0))); //Added this in by Anna
 
-	vector<Vector2f> vertices;
-	vector<Vector2f> points;
-
 	//Fonts done by Fernanda (our file-paths differ)
 	//mine (Anna's) is https://fonts.google.com/specimen/Roboto
-
 	Font newFont;
 	newFont.loadFromFile("/home/ubuntu/Desktop/cisp400/fonts/Roboto/static/Roboto-Black.ttf");
 
