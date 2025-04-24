@@ -25,7 +25,7 @@ int main()
 	//mine (Anna's) is https://fonts.google.com/specimen/Roboto
 
 	Font newFont;
-	newFont.loadFromFile("/home/ubuntu/Desktop/cisp400/fonts/Roboto/static/Roboto-Black.ttf);
+	newFont.loadFromFile("/home/ubuntu/Desktop/cisp400/fonts/Roboto/static/Roboto-Black.ttf");
 
 	Text newText("Please press three dots", newFont, 50);
 	newText.setFillColor(Color::White);
