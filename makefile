@@ -1,10 +1,12 @@
 SRC_DIR := ./code
 OBJ_DIR := .
 SRC_FILES := $(wildcard $(SRC_DIR)/*.cpp)
+
 OBJ_FILES := $(patsubst $(SRC_DIR)/%.cpp,$(OBJ_DIR)/%.o,$(SRC_FILES))
+
 LDFLAGS := -L/opt/homebrew/lib -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CXXFLAGS := -g -Wall -fpermissive -std=c++17 -I/opt/homebrew/include
-TARGET := triangle.out
+TARGET := ChaosGame.cpp
 
 $(TARGET): $(OBJ_FILES)
 	g++ -o $@ $^ $(LDFLAGS)
@@ -16,4 +18,4 @@ run:
 	./$(TARGET)
 
 clean:
-	rm $(TARGET) *.o
+	rm -f $(TARGET) *.o
