@@ -90,8 +90,8 @@ int main()
 			Vector2f lastPt = points.back();
 			Vector2f newPt;
 
-			newPt.x = (lastPt.x + vertex.x) / 2.0;
-			newPt.y = (lastPt.y + vertex.y) / 2.0;
+			newPt.x = (lastPt.x + vertex.x) / 2;
+			newPt.y = (lastPt.y + vertex.y) / 2;
 
 			points.push_back(newPt);
 
