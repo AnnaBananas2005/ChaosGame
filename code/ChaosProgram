@@ -16,16 +16,23 @@ int main()
 	VideoMode vm(1920, 1080);
 	// Create and open a window for the game
 	RenderWindow window(vm, "Chaos Game!!", Style::Default);
+	srand(static_cast<unsigned int>(time(0))); //Added this in by Anna
 
 	vector<Vector2f> vertices;
 	vector<Vector2f> points;
 
-	Font newFont;
+	//Fonts done by Fernanda (our file-paths differ)
+	//mine (Anna's) is https://fonts.google.com/specimen/Roboto
 
-	if (!newFont.loadFromFile("Desktop/cisp400/Chaos_Game/arial.ttf"))
-	{
-		//error
-	}
+	Font newFont;
+	newFont.loadFromFile("/home/ubuntu/Desktop/cisp400/fonts/Roboto/static/Roboto-Black.ttf);
+
+	Text newText("Please press three dots", newFont, 50);
+	newText.setFillColor(Color::White);
+	newText.setStyle(Text::Bold);
+
+	vector<Vector2f> vertices;
+	vector<Vector2f> points;
 
 	while (window.isOpen())
 	{
@@ -34,14 +41,6 @@ int main()
 		Handle the players input
 		****************************************
 		*/
-		//text and font (done by Fernanda)
-		Text newText("Please choose three points", newFont);
-		newText.setCharacterSize(522);
-		newText.setFillColor(Color::Red);
-		newText.setStyle(Text::Bold);
-		newText.setPosition(50, 50);
-		window.draw(newText);
-
 		Event event;
 		while (window.pollEvent(event))
 		{
@@ -88,15 +87,13 @@ int main()
 			Vector2f pt1 = vertices[0];
 			Vector2f pt2 = vertices[1];
 			Vector2f pt3 = vertices[2];
-			///select random vertex
-			///calculate midpoint between random vertex and the last point in the vector
-			///push back the newly generated coord.
-			Vector2f lastPt = points.back();
-			int newRand = (rand() % 3) + 1;
 
+			int newRand = rand() % 3;
 			Vector2f vertex = vertices[newRand];
 
+			Vector2f lastPt = points.back();
 			Vector2f newPt;
+
 			newPt.x = (lastPt.x + vertex.x) / 2.0;
 			newPt.y = (lastPt.y + vertex.y) / 2.0;
 
@@ -118,15 +115,15 @@ int main()
 			window.draw(rect);
 		}
 		///TODO:  Draw points
-		//drawing code done by Fernanda 
-		window.clear();
+		//drawing code done by Fernanda & edits from Anna 
 		for (int i = 0; i < points.size(); i++)
 		{
-			RectangleShape rect(Vector2f(10, 10));
-			rect.setPosition(Vector2f(points[i].x, points[i].y));
-			rect.setFillColor(Color::Blue);
-			window.draw(rect);
+			CircleShape point(2.0f);
+			point.setPosition(points[i]);
+			point.setFillColor(Color::Blue);
+			window.draw(point);
 		}
+		window.draw(newText);
 		window.display();
 	}
 	return 0;
