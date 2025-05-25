@@ -11,8 +11,7 @@ To put it in the most simplest explanation, its an equilateral triangle that get
 Its a loop of shrinking the triangle into half of its height and width (1/2), and 
 we make 3 copies of that and they are placed at the corners of the original triangle (top, bottom-left & bottom-right). You repeat this for every triangle.
 
-## How to run it 
-##Cloning with GIT
+## How to run it - Cloning with GIT
 1. Click the green button 'Code', and copy the HTTPS link
 2. Open your git bash terminal OR any IDE that has Git built into them (VS, VS code, etc)
 3. Run:
